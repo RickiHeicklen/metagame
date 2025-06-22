@@ -1,4 +1,4 @@
-// Environment variable loader for Astro
+// // Environment variable loader for Astro
 // import { loadEnv } from 'vite';
 
 // // Load environment variables for local development
@@ -8,7 +8,8 @@
 
 export const getEnvVar = (key: string): string => {
   // Try local env first (from loadEnv), then process.env
-  const value = process.env[key]; // const value = env[key] || process.env[key];
+  // const value = env[key] || process.env[key];
+  const value = process.env[key];
 
   if (!value) {
     console.error(`Environment variable ${key} is not set`);
@@ -25,6 +26,7 @@ export const AIRTABLE_TABLE_NAME = getEnvVar('AIRTABLE_TABLE_NAME');
 export const STRIPE_SECRET_KEY = getEnvVar('STRIPE_SECRET_KEY');
 export const PUBLIC_STRIPE_PUBLISHABLE_KEY = getEnvVar('PUBLIC_STRIPE_PUBLISHABLE_KEY');
 export const COUPONS = getEnvVar('COUPONS');
+export const DISCORD_WEBHOOK_URL = getEnvVar('DISCORD_WEBHOOK_URL');
 
 // Helper function to get any environment variable
 export const getEnvVarSafe = (key: string): string | undefined => {

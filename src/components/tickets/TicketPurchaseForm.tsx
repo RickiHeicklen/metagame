@@ -211,7 +211,9 @@ const PaymentForm: React.FC<PaymentFormProps> = ({ ticketType, onClose, onSucces
             name,
             email,
             ticketType: ticketType.title,
-            price: ticketType.price,
+            price: finalPrice,
+            originalPrice: ticketType.price,
+            couponCode: appliedCoupon?.code || null,
           }),
         });
 

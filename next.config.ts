@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
   images: {
     domains: ['metagame.games'],
   },
-  // Handle import.meta.env
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,

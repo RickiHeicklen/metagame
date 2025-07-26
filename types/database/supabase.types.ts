@@ -87,7 +87,15 @@ export type Database = {
           start_time?: string | null
           title?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "sessions_location_id_fkey"
+            columns: ["location_id"]
+            isOneToOne: false
+            referencedRelation: "locations"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       tickets: {
         Row: {
@@ -122,21 +130,6 @@ export type Database = {
           first_name: string | null
           id: string | null
           last_name: string | null
-        }
-        Relationships: []
-      }
-      sessions_view: {
-        Row: {
-          capacity: number | null
-          description: string | null
-          end_time: string | null
-          host_email: string | null
-          host_id: string | null
-          id: string | null
-          location: string | null
-          location_id: string | null
-          start_time: string | null
-          title: string | null
         }
         Relationships: []
       }

@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import SetCard from "./SetCard";
 import { generateSetBoard, isSet, refilledBoard } from "./SetSet";
+import Link from "next/link";
 
 export default function SetAnimation() {
   const [mounted, setMounted] = useState(false);
@@ -99,14 +100,19 @@ export default function SetAnimation() {
           </div>
         ))}
       </div>
-      <div className="flex justify-center items-center gap-2 min-h-[4px]">
-        {Array.from({ length: foundSets }).map((_, index) => (
+      {foundSets > 0 && <div className="flex justify-center items-center gap-2 min-h-[4px] animate-fade-in">
+        {Array.from({ length: Math.max(5, foundSets) }).map((_, index) => (
           <div
             key={index}
-            className="size-1 bg-white rounded-full shadow-lg "
+            className={`size-1 ${index < foundSets ? "bg-white" : "bg-gray-700 "} rounded-full shadow-lg `}
           ></div>
         ))}
-      </div>
+      </div>}
+      {foundSets >= 5 && 
+      <Link href="/proset-puzzle" className="animate-fade-in bg-blue-300 text-black text-center max-w-48 md:max-w-full font-semibold px-2 py-1 rounded-md">
+        Want something trickier and more rewarding?
+      </Link>
+      }
     </div>
   );
 }
